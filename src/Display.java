@@ -15,6 +15,8 @@ public class Display extends Canvas implements Runnable,ActionListener {
     public static final int HEIGHT = 600;
     private static boolean running = false;
 
+
+
     public Display(){
         this.frame = new JFrame();
         Dimension size = new Dimension(WIDTH,HEIGHT);
@@ -36,8 +38,6 @@ public class Display extends Canvas implements Runnable,ActionListener {
         display.frame.setVisible(true);
 
         display.start();
-
-
     }
 
     public synchronized void start(){
