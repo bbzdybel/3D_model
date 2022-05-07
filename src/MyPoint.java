@@ -5,6 +5,17 @@ public class MyPoint {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
 
+    public double getZ(){
+        return z;
+    }
+
+    public double getX(){
+        return x;
+    }
+
+    public double getY(){
+        return y;
     }
 }

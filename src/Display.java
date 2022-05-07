@@ -36,6 +36,8 @@ public class Display extends Canvas implements Runnable,ActionListener {
         display.frame.setVisible(true);
 
         display.start();
+
+
     }
 
     public synchronized void start(){
