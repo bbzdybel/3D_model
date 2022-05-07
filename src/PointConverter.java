@@ -1,11 +1,20 @@
+import javax.sound.sampled.Line;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class PointConverter {
-    public static Point convertPoint(MyPoint point3D){
-        int x2d= (int)(Display.WIDTH / 2 + point3D.y);
-        int y2d= (int)(Display.HEIGHT /2 - point3D.z);
+public class PointConverter extends MyPoint{
+    private ArrayList<Line> lines;
+    private int xPosition = 100;
+    private int yPosition = 100;
 
-        Point point2d = new Point(x2d, y2d);
-        return point2d;
+    public PointConverter(double x, double y, double z, ArrayList<Line> lines){
+        super(x,y,z);
+        this.lines = lines;
+    }
+
+    public void paint(Graphics g){
+        for (Line line : lines) {
+            line.paint(g, xPosition, yPosition);
+        }
     }
 }

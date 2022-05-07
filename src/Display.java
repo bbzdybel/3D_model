@@ -1,8 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
-public class Display extends Canvas implements Runnable{
+public class Display extends Canvas implements Runnable,ActionListener {
 
 
     private Thread thread;
@@ -19,6 +22,10 @@ public class Display extends Canvas implements Runnable{
     }
 
     public static void main(String[] args){
+        InPutFileReader inPutFileReader = new InPutFileReader("C:\\Users\\zdybe\\Desktop\\3D_model\\src\\shape");
+        ArrayList<Line> lines = inPutFileReader.getLines();
+
+
         Display display = new Display();
         display.frame.setTitle(title);
         display.frame.add(display);
@@ -80,9 +87,20 @@ public class Display extends Canvas implements Runnable{
             return;
         }
         Graphics g = bs.getDrawGraphics();
+        g.setColor(Color.WHITE);
+        g.fillRect(0,0,WIDTH *2, HEIGHT*2);
+
+
+        g.dispose();
+        bs.show();
     }
 
     private void update(){
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 }
