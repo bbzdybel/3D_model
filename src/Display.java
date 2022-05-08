@@ -9,19 +9,11 @@ public class Display extends Canvas implements Runnable,ActionListener {
 
 
     private Thread thread;
-    private JFrame frame;
     private static String title = "3D model";
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     private static boolean running = false;
 
-
-
-    public Display(){
-        this.frame = new JFrame();
-        Dimension size = new Dimension(WIDTH,HEIGHT);
-        this.setPreferredSize(size);
-    }
 
     public static void main(String[] args){
         InPutFileReader inPutFileReader = new InPutFileReader("C:\\Users\\zdybe\\Desktop\\3D_model\\src\\shape");
@@ -33,9 +25,10 @@ public class Display extends Canvas implements Runnable,ActionListener {
 
         drowLine.setPointConverter(pointConverter);
         frame.addKeyListener(new Rotate(pointConverter));
-        frame.setSize(1200, 700);
+        frame.setSize(WIDTH, HEIGHT);
         frame.setLocationRelativeTo(null);
-        frame.setTitle("Camera App");
+        frame.setTitle("Camera");
+        frame.setBackground(Color.WHITE);
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,7 +70,6 @@ public class Display extends Canvas implements Runnable,ActionListener {
 
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
-                this.frame.setTitle(title+ " | " + frames + " fps ");
                 frames = 0;
             }
         }

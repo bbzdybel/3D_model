@@ -1,5 +1,5 @@
 public class MyPoint {
-    public double x, y, z;
+    public double y, x, z;
 
     public MyPoint(double x, double y, double z){
         this.x = x;
@@ -17,5 +17,15 @@ public class MyPoint {
 
     public double getY(){
         return y;
+    }
+
+    public void setX(double x){
+        this.x = x;
+    }
+    public void setY(double y){
+        this.y = y;
+    }
+    public void setZ(double z){
+        this.z = z;
     }
 }
