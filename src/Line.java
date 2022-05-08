@@ -6,7 +6,7 @@ public class Line {
 
     private MyPoint a;
     private MyPoint b;
-    private static double step = 0.5;
+    private static double step = 2;
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
 

@@ -18,10 +18,10 @@ public class Rotate implements KeyListener {
         int keyCode = e.getKeyCode();
         switch (keyCode) {
             case KeyEvent.VK_UP:
-                pointConverter.linesBackward();
+                pointConverter.linesDown();
                 break;
             case KeyEvent.VK_DOWN:
-                pointConverter.linesForward();
+                pointConverter.linesUp();
                 break;
             case KeyEvent.VK_RIGHT:
                 pointConverter.linesLeft();
@@ -30,15 +30,9 @@ public class Rotate implements KeyListener {
                 pointConverter.linesRight();
                 break;
             case KeyEvent.VK_W:
-                pointConverter.linesDown();
-                break;
-            case KeyEvent.VK_S:
-                pointConverter.linesUp();
-                break;
-            case KeyEvent.VK_D:
                 pointConverter.zoomIn();
                 break;
-            case KeyEvent.VK_E:
+            case KeyEvent.VK_S:
                 pointConverter.zoomOut();
                 break;
             case KeyEvent.VK_1:
