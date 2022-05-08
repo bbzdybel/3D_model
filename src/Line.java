@@ -7,6 +7,8 @@ public class Line {
     private MyPoint a;
     private MyPoint b;
     private static double step = 0.5;
+    public static final int WIDTH = 800;
+    public static final int HEIGHT = 600;
 
     public Line(MyPoint a, MyPoint b){
         this.a = a;
@@ -19,26 +21,26 @@ public class Line {
         double yTan = tan(Math.toRadians(yAngle / 2.0));
 
         if (a.getZ() > 0 && b.getZ() > 0) {
-            aX = (400 * a.getX()) / (a.getZ() * xTan);
-            aY = (400 * a.getY()) / (a.getZ() * yTan);
-            bX = (400 * b.getX()) / (b.getZ() * xTan);
-            bY = (400 * b.getY()) / (b.getZ() * yTan);
+            aX = ((WIDTH/2) * a.getX()) / (a.getZ() * xTan);
+            aY = ((WIDTH/2) * a.getY()) / (a.getZ() * yTan);
+            bX = ((WIDTH/2) * b.getX()) / (b.getZ() * xTan);
+            bY = ((WIDTH/2) * b.getY()) / (b.getZ() * yTan);
         } else if (a.getZ() > 0 || b.getZ() > 0) {
             if (a.getZ() > 0) {
                 if (pointInSight(a, xAngle, yAngle)) {
-                    aX = (400 * a.getX()) / (a.getZ() * xTan);
-                    aY = (400 * a.getY()) / (a.getZ() * yTan);
-                    bX = (400 * b.getX()) / xTan;
-                    bY = (400 * b.getY()) / yTan;
+                    aX = ((WIDTH/2) * a.getX()) / (a.getZ() * xTan);
+                    aY = ((WIDTH/2) * a.getY()) / (a.getZ() * yTan);
+                    bX = ((WIDTH/2) * b.getX()) / xTan;
+                    bY = ((WIDTH/2) * b.getY()) / yTan;
                 } else {
                     return;
                 }
             } else {
                 if (pointInSight(b, xAngle, yAngle)) {
-                    aX = (400 * a.getX()) / (1 * xTan);
-                    aY = (400 * a.getY()) / (1 * yTan);
-                    bX = (400 * b.getX()) / (b.getZ() * xTan);
-                    bY = (400 * b.getY()) / (b.getZ() * yTan);
+                    aX = ((WIDTH/2) * a.getX()) / (1 * xTan);
+                    aY = ((WIDTH/2) * a.getY()) / (1 * yTan);
+                    bX = ((WIDTH/2) * b.getX()) / (b.getZ() * xTan);
+                    bY = ((WIDTH/2) * b.getY()) / (b.getZ() * yTan);
                 } else {
                     return;
                 }
@@ -46,7 +48,7 @@ public class Line {
         } else {
             return;
         }
-        g.drawLine((int) aX + 400, (int) -aY + 300, (int) bX + 400, (int) -bY + 300);
+        g.drawLine((int) aX + (WIDTH/2), (int) -aY + (HEIGHT/2), (int) bX + (WIDTH/2), (int) -bY + (HEIGHT/2));
     }
 
     private boolean pointInSight(MyPoint a, int xAngle, int yAngle) {
@@ -85,11 +87,11 @@ public class Line {
         rotateZ(b, -Math.toRadians(0.5));
     }
 
-    private void rotateZ(MyPoint p, double rotateAngle) {
-        double oldX = p.getX();
-        double oldY = p.getY();
-        p.setX((float) (oldX * cos(rotateAngle) - oldY * sin(rotateAngle)));
-        p.setY((float) (oldX * sin(rotateAngle) + oldY * cos(rotateAngle)));
+    private void rotateZ(MyPoint myPoint, double rotateAngle) {
+        double oldX = myPoint.getX();
+        double oldY = myPoint.getY();
+        myPoint.setX((float) (oldX * cos(rotateAngle) - oldY * sin(rotateAngle)));
+        myPoint.setY((float) (oldX * sin(rotateAngle) + oldY * cos(rotateAngle)));
     }
 
     public void rotateLeftY() {
@@ -102,11 +104,11 @@ public class Line {
         rotateY(b, -Math.toRadians(0.5));
     }
 
-    private void rotateY(MyPoint p, double rotateAngle) {
-        double oldX = p.getX();
-        double oldZ = p.getZ();
-        p.setX((float) (oldX * cos(rotateAngle) - oldZ * sin(rotateAngle)));
-        p.setZ((float) (oldX * sin(rotateAngle) + oldZ * cos(rotateAngle)));
+    private void rotateY(MyPoint myPoint, double rotateAngle) {
+        double oldX = myPoint.getX();
+        double oldZ = myPoint.getZ();
+        myPoint.setX((float) (oldX * cos(rotateAngle) - oldZ * sin(rotateAngle)));
+        myPoint.setZ((float) (oldX * sin(rotateAngle) + oldZ * cos(rotateAngle)));
     }
 
     public void rotateUpX() {
@@ -119,11 +121,11 @@ public class Line {
         rotateX(b, Math.toRadians(0.5));
     }
 
-    private void rotateX(MyPoint p, double rotateAngle) {
-        double oldY = p.getY();
-        double oldZ = p.getZ();
-        p.setY((float) (oldY * cos(rotateAngle) - oldZ * sin(rotateAngle)));
-        p.setZ((float) (oldY * sin(rotateAngle) + oldZ * cos(rotateAngle)));
+    private void rotateX(MyPoint myPoint, double rotateAngle) {
+        double oldY = myPoint.getY();
+        double oldZ = myPoint.getZ();
+        myPoint.setY((float) (oldY * cos(rotateAngle) - oldZ * sin(rotateAngle)));
+        myPoint.setZ((float) (oldY * sin(rotateAngle) + oldZ * cos(rotateAngle)));
     }
 
     public void moveBackward() {

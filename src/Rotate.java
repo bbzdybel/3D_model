@@ -29,36 +29,37 @@ public class Rotate implements KeyListener {
             case KeyEvent.VK_LEFT:
                 pointConverter.linesRight();
                 break;
-            case KeyEvent.VK_U:
+            case KeyEvent.VK_W:
                 pointConverter.linesDown();
                 break;
-            case KeyEvent.VK_D:
+            case KeyEvent.VK_S:
                 pointConverter.linesUp();
                 break;
-            case KeyEvent.VK_I:
+            case KeyEvent.VK_D:
                 pointConverter.zoomIn();
                 break;
-            case KeyEvent.VK_O:
+            case KeyEvent.VK_E:
                 pointConverter.zoomOut();
                 break;
-            case KeyEvent.VK_N:
-                pointConverter.turnRightZ();
-                break;
-            case KeyEvent.VK_M:
-                pointConverter.turnLeftZ();
-                break;
-            case KeyEvent.VK_R:
-                pointConverter.turnLeftY();
-                break;
-            case KeyEvent.VK_L:
-                pointConverter.turnRightY();
-                break;
-            case KeyEvent.VK_F:
+            case KeyEvent.VK_1:
                 pointConverter.turnUpX();
                 break;
-            case KeyEvent.VK_B:
+            case KeyEvent.VK_2:
                 pointConverter.turnDownX();
                 break;
+            case KeyEvent.VK_3:
+                pointConverter.turnLeftY();
+                break;
+            case KeyEvent.VK_4:
+                pointConverter.turnRightY();
+                break;
+            case KeyEvent.VK_5:
+                pointConverter.turnRightZ();
+                break;
+            case KeyEvent.VK_6:
+                pointConverter.turnLeftZ();
+                break;
+
         }
 
     }

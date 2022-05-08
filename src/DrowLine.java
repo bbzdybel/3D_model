@@ -9,7 +9,7 @@ public class DrowLine extends JPanel implements ActionListener {
 
     public void paint(Graphics g){
         g.setColor(Color.WHITE);
-        g.fillRect(0,0,WIDTH, HEIGHT);
+        g.fillRect(0, 0, Display.WIDTH, Display.HEIGHT);
         g.setColor(Color.BLACK);
         pointConverter.paint(g);
         repaint();
