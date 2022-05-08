@@ -26,18 +26,20 @@ public class Display extends Canvas implements Runnable,ActionListener {
     public static void main(String[] args){
         InPutFileReader inPutFileReader = new InPutFileReader("C:\\Users\\zdybe\\Desktop\\3D_model\\src\\shape");
         ArrayList<Line> lines = inPutFileReader.getLines();
+        PointConverter pointConverter = new PointConverter(0,0,0,lines);
 
+        JFrame frame = new JFrame();
+        DrowLine drowLine = new DrowLine();
 
-        Display display = new Display();
-        display.frame.setTitle(title);
-        display.frame.add(display);
-        display.frame.pack();
-        display.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        display.frame.setLocationRelativeTo(null);
-        display.frame.setResizable(false);
-        display.frame.setVisible(true);
-
-        display.start();
+        drowLine.setPointConverter(pointConverter);
+        frame.addKeyListener(new Rotate(pointConverter));
+        frame.setSize(1200, 700);
+        frame.setLocationRelativeTo(null);
+        frame.setTitle("Camera App");
+        frame.setResizable(false);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(drowLine);
     }
 
     public synchronized void start(){

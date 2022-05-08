@@ -9,4 +9,8 @@ public class DrowLine extends JPanel {
         pointConverter.paint(g);
         repaint();
     }
+
+    public void setPointConverter(PointConverter pointConverter) {
+        this.pointConverter = pointConverter;
+    }
 }
